@@ -1,198 +1,667 @@
-/* charity: water Brand Colors & Fonts
+/* =========================
+   GLOBAL RESET & BASE
+   ========================= */
 
-Primary Colors:
-- Yellow:     #FFC907
-- Blue:       #2E9DF7
-
-Secondary Colors:
-- Light Blue: #8BD1CB
-- Green:      #4FCB53
-- Orange:     #FF902A
-- Red:        #F5402C
-- Dark Green: #159A48
-- Pink:       #F16061
-
-Fonts:
-- Proxima Nova
-- Avenir
-
-*/
-
-/* 
-  Charity: Water Landing Page Styles
-  This CSS uses the provided color palette and beginner-friendly styles.
-*/
-
-/* Set up the main font and background color for the whole page */
-body {
-  background-color: #f4f8fb; /* Soft light blue for a fresh look */
-  font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
+* {
   margin: 0;
   padding: 0;
-  color: #222;
+  box-sizing: border-box;
 }
 
-/* Add a slight shadow and rounded corners to each section for depth */
-section {
-  background: #fff; /* White background for sections */
-  border-radius: 12px; /* Rounded corners */
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07); /* Soft blue shadow */
-  margin: 24px 10px; /* Space between sections */
-  padding: 24px 16px;
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: linear-gradient(to bottom, #fffacd, #ffe8a8);
+  color: #20343d;
+  line-height: 1.7;
+  font-size: 16px;
 }
 
-/* Hero Section Styles */
-.hero {
-  position: relative; /* Needed for overlay */
-  /* Set a background image that covers the whole section */
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
-  background-size: cover;      /* Make the image cover the whole area */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat;
-  color: #fff;                 /* White text for contrast */
-  text-align: center;          /* Center the text */
-  padding: 60px 20px;          /* Add space above and below */
-  border-radius: 0 0 16px 16px; /* Only round bottom corners */
+/* =========================
+   GLASS / AERO PANELS
+   ========================= */
 
-  /* Add a dark overlay for better text readability */
-  /* This uses a simple linear-gradient overlay */
-  background-blend-mode: darken;
-  background-color: rgba(46, 157, 247, 0.45); /* Blue overlay */
+.glass {
+  background: linear-gradient(135deg, rgba(100, 180, 220, 0.35) 0%, rgba(70, 150, 200, 0.28) 100%);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 2px solid rgba(150, 200, 255, 0.5);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15), inset 0 0 20px rgba(255, 255, 255, 0.4);
 }
 
-/* Make the headline bold and modern */
-.hero h1 {
-  font-size: 2.5em;
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin-bottom: 15px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow for readability */
+/* =========================
+   HEADER
+   ========================= */
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 24px 32px;
+  margin-bottom: 24px;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-weight: 400;
 }
 
-/* Style the subheadline */
-.hero p {
-  font-size: 1.2em;
-  margin-top: 0;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.12);
+.header img {
+  height: 60px;
+}
 }
 
-/* Story Section Styles */
-.story {
-  background-color: #8BD1CB; /* Secondary Light Blue */
-  color: #222;
-  text-align: center;
-  padding: 30px 20px;
+/* =========================
+   TOP SECTIONS WRAPPER
+   ========================= */
+
+.top-sections-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
-/* Add accent color to section headings */
-h2 {
-  color: #2E9DF7; /* Primary blue */
-  margin-top: 0;
-  font-weight: bold;
+/* =========================
+   SCROLLING HEADLINES TICKER
+   ========================= */
+
+.headlines-ticker-container {
+  margin: 24px 0;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  overflow: hidden;
 }
 
-/* Call-to-Action Section Styles */
-.call-to-action {
-  background-color: #FFC907; /* Primary Yellow */
-  color: #222;
-  text-align: center;
-  padding: 30px 20px;
+.ticker-label {
+  font-weight: 600;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  color: #20343d;
 }
 
-/* Style the impact story image */
-.impact-image {
-  width: 100%;
-  max-width: 320px;
-  border-radius: 10px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.10);
+.headlines-ticker {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  height: 24px;
 }
 
-/* Donate Button Styles */
-.donate-button {
+.ticker-content {
+  display: flex;
+  gap: 60px;
+  animation: scroll-right 60s linear infinite;
+  white-space: nowrap;
+}
+
+.ticker-item {
+  font-size: 0.9rem;
+  color: #ff0000;
+  font-style: italic;
+  padding: 0 20px;
   display: inline-block;
-  background-color: #4FCB53; /* Green */
-  color: #fff;
-  padding: 14px 32px;
+  flex-shrink: 0;
+  animation: fade-in-out 4s ease-in-out infinite;
+}
+
+.ticker-item:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.ticker-item:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.ticker-item:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.ticker-item:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+.ticker-item:nth-child(5) {
+  animation-delay: 2s;
+}
+
+.ticker-item:nth-child(6) {
+  animation-delay: 2.5s;
+}
+
+.ticker-item:nth-child(7) {
+  animation-delay: 3s;
+}
+
+.ticker-item:nth-child(8) {
+  animation-delay: 3.5s;
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes fade-in-out {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes button-shade-shift {
+  0% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.15);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
+
+/* =========================
+   CONTEXT LINKS STYLING & BUTTONS
+   ========================= */
+
+.context-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.context-buttons .frutiger-aero-button {
+  width: 100%;
+  text-align: left;
+  padding: 0.6em 1.2em;
+  font-size: 0.9rem;
+}
+
+.nav-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nav-buttons .frutiger-aero-button.small-btn {
+  width: 100%;
+  padding: 0.6em 1.2em;
+  font-size: 0.9rem;
+}
+
+.sideboard a {
+  color: #0ea5a4;
   text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  font-size: 1.1em;
-  margin-top: 18px;
-  box-shadow: 0 2px 8px rgba(79, 203, 83, 0.10);
-  transition: background 0.3s, transform 0.2s;
-  border: none;
+  font-weight: 500;
+  transition: opacity 300ms ease;
+}
+
+.sideboard a:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+.sideboard li {
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+/* =========================
+   TICKER / TOP STRIP
+   ========================= */
+
+.ticker {
+  margin: 24px 0;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+#clocks span {
+  margin-right: 18px;
+}
+
+.headline {
+  font-style: italic;
+  opacity: 0.85;
+}
+
+/* =========================
+   MAIN LAYOUT
+   ========================= */
+
+.layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 24px;
+  padding: 0 40px;
+  align-items: stretch;
+  max-width: 900px;
+  margin: 24px auto;
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.main {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.main h1 {
+  font-weight: 600;
+  margin-bottom: 16px;
+  font-size: 2rem;
+}
+
+.main p {
+  margin-bottom: 28px;
+  color: #354f5a;
+  line-height: 1.8;
+}
+
+/* =========================
+   MAIN IMAGE
+   ========================= */
+
+.main-image-container {
+  margin-top: 32px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.main-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+/* =========================
+   SIDEBOARD
+   ========================= */
+
+.sideboard {
+  padding: 30px 24px;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
+
+.sideboard h3 {
+  margin-bottom: 14px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #20343d;
+}
+
+.sideboard ul {
+  list-style: none;
+}
+
+.sideboard li {
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.footer {
+  text-align: center;
+  padding: 30px;
+  font-size: 0.85rem;
+}
+
+.footer a {
+  color: #0ea5a4;
+  text-decoration: none;
+}
+
+/* =========================
+   FRUTIGER AERO BUTTONS
+   ========================= */
+
+.frutiger-aero-button {
+  --hue: 210;
+  --sat: 0.6;
+  --glow-intensity: 0.85;
+
+  --fg: oklch(15% calc(var(--sat) * 0.5) var(--hue));
+  --bg: oklch(65% var(--sat) var(--hue) / 0.8);
+  --bg-dark: oklch(35% var(--sat) var(--hue) / 0.75);
+
+  background:
+    radial-gradient(
+      farthest-corner at bottom center,
+      rgba(255, 255, 255, var(--glow-intensity)),
+      transparent
+    ),
+    linear-gradient(to bottom, var(--bg-dark), var(--bg));
+
+  border: 1px solid var(--bg);
+  border-radius: 9999px;
+
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+
+  color: var(--fg);
+  font-family: "Lucida Grande", "Segoe UI", system-ui, sans-serif;
+  font-weight: 700;
+  text-shadow: 0 2px 0.5em rgba(0, 0, 0, 0.2);
+
   cursor: pointer;
+  position: relative;
+  transition: all 300ms ease;
+
+  user-select: none;
 }
 
-/* Change button color when hovered */
-.donate-button:hover {
-  background-color: #159A48; /* Dark Green */
-  transform: translateY(-2px) scale(1.04); /* Slight lift */
+.frutiger-aero-button::after {
+  content: "";
+  position: absolute;
+  top: 4%;
+  left: 0.75em;
+  width: calc(100% - 1.5em);
+  height: 40%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.1)
+  );
+  border-radius: inherit;
+  pointer-events: none;
 }
 
-/* Add some spacing between sections */
-section {
+.frutiger-aero-button:hover {
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+  transform: translateY(-1px);
+}
+
+.frutiger-aero-button:active {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transform: translateY(1px);
+}
+
+.frutiger-aero-button.medium {
+  padding: 0.75em 2em;
+  font-size: 1rem;
+}
+
+/* =========================
+   DONATE SECTION
+   ========================= */
+
+.donate-section {
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.donate-section h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
   margin-bottom: 20px;
+  color: #20343d;
 }
 
-/* 
-  Media Queries for Responsive Design
-  Media queries help make your website look good on different screen sizes,
-  like phones (small screens) and computers (large screens).
-*/
-
-/* This media query applies styles when the screen is 600px wide or less (like on most phones) */
-@media (max-width: 600px) {
-  /* Make hero section padding smaller on small screens */
-  .hero {
-    padding: 32px 8px;
-    font-size: 1em;
-  }
-
-  /* Make headline font size smaller so it fits on small screens */
-  .hero h1 {
-    font-size: 1.4em;
-  }
-
-  /* Make subheadline font size smaller */
-  .hero p {
-    font-size: 1em;
-  }
-
-  /* Make story and call-to-action sections have less padding */
-  .story,
-  .call-to-action,
-  .donation-section {
-    padding: 14px 8px;
-  }
-
-  /* Make impact story image smaller and stack above the text */
-  .impact-content {
-    display: block; /* Stack items vertically */
-    text-align: center;
-  }
-
-  .impact-image {
-    width: 90%;    /* Make image take up most of the width */
-    max-width: 220px;
-  }
+.donate-section p {
+  font-size: 1.1rem;
+  color: #354f5a;
+  margin-bottom: 40px;
+  line-height: 1.8;
 }
 
-/* This media query applies styles when the screen is wider than 600px (like on tablets and computers) */
-@media (min-width: 601px) {
-  /* Show image and text side by side in the impact story */
-  .impact-content {
-    display: flex;           /* Place items in a row */
-    align-items: center;     /* Vertically center items */
-    justify-content: center; /* Center the whole group */
-    gap: 28px;               /* Space between image and text */
-    text-align: left;
-    max-width: 800px;
-    margin: 0 auto;
+.donate-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   HERO SECTION
+   ========================= */
+
+.hero {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #20343d;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: #354f5a;
+  margin-bottom: 40px;
+  line-height: 1.8;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   IMPACT STATISTICS SECTION
+   ========================= */
+
+.impact-stats {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 60px 40px;
+  display: flex;
+  justify-content: space-around;
+  gap: 40px;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  flex: 1;
+  min-width: 180px;
+}
+
+.stat-number {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #0ea5a4;
+  margin-bottom: 12px;
+}
+
+.stat-label {
+  font-size: 0.95rem;
+  color: #354f5a;
+  font-weight: 500;
+}
+
+/* =========================
+   WHY WATER SECTION
+   ========================= */
+
+.why-water {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 60px 40px;
+}
+
+.why-water h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 40px;
+  text-align: center;
+  color: #20343d;
+}
+
+.water-blocks {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.water-block {
+  flex: 1;
+  min-width: 250px;
+  max-width: 280px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+}
+
+.water-block h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #0ea5a4;
+}
+
+.water-block p {
+  font-size: 0.95rem;
+  color: #354f5a;
+  line-height: 1.7;
+}
+
+/* =========================
+   HOW WE WORK SECTION
+   ========================= */
+
+.how-we-work {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 60px 40px;
+}
+
+.how-we-work h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #20343d;
+}
+
+.how-we-work p {
+  font-size: 1rem;
+  color: #354f5a;
+  line-height: 1.8;
+}
+
+/* =========================
+   JOIN THE CAUSE SECTION
+   ========================= */
+
+.join-cause {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.join-cause h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 40px;
+  color: #20343d;
+}
+
+.cause-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+   ========================= */
+
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+    padding: 24px 16px;
   }
 
-  .impact-image {
-    width: 300px;
+  .navbar {
+    margin: 12px 16px;
+    gap: 12px;
+  }
+
+  .nav-btn {
+    padding: 0.5em 1.4em;
+    font-size: 0.85rem;
+  }
+
+  .headlines-ticker-container {
+    margin: 12px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .ticker-label {
+    font-size: 0.8rem;
+  }
+
+  .ticker-item {
+    font-size: 0.8rem;
+  }
+
+  .main h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+
+  .hero,
+  .impact-stats,
+  .why-water,
+  .how-we-work,
+  .join-cause {
+    margin: 24px auto;
+    padding: 40px 24px;
+  }
+
+  .hero-buttons,
+  .cause-buttons {
+    flex-direction: column;
+  }
+
+  .hero-buttons button,
+  .cause-buttons button {
+    width: 100%;
+  }
+
+  .water-blocks {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat-number {
+    font-size: 2.2rem;
   }
 }

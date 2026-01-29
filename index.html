@@ -1,47 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>Water Access Overview</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+  <!-- HEADER: OFFICIAL BRAND LOCKUP -->
+  <header class="header glass">
+    <img src="img/charity-water-header.png" alt="charity: water logo">
+  </header>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
+  <!-- TOP SECTIONS WRAPPER -->
+  <div class="top-sections-wrapper">
+    <!-- SCROLLING HEADLINES TICKER -->
+    <div class="headlines-ticker-container glass">
+      <div class="ticker-label">Recent Headlines</div>
+      <div class="headlines-ticker">
+        <div class="ticker-content" id="ticker-content">
+          <!-- Headlines will be populated by JavaScript -->
         </div>
+      </div>
+    </div>
+
+    <!-- AMBIENT TOP STRIP (CLOCKS + HEADLINES) -->
+    <section class="ticker glass">
+      <div class="clocks">
+        <span>Los Angeles: <strong id="la">--:--</strong></span>
+        <span>Nairobi: <strong id="nairobi">--:--</strong></span>
+        <span>Delhi: <strong id="delhi">--:--</strong></span>
+      </div>
+      <div class="headline" id="headline">
+        Live global context related to water access
+      </div>
+    </section>
+  </div>
+
+  <!-- MAIN PAGE LAYOUT -->
+  <main class="layout">
+
+    <!-- LEFT SIDEBAR: NAVIGATION & LIVE CONTEXT STACKED -->
+    <div class="left-column">
+      <!-- NAVIGATION -->
+      <aside class="sideboard glass">
+        <h3>Navigation</h3>
+        <div class="nav-buttons">
+          <button class="frutiger-aero-button small-btn">Home</button>
+          <button class="frutiger-aero-button small-btn">About</button>
+          <button class="frutiger-aero-button small-btn">Impact</button>
+          <button class="frutiger-aero-button small-btn">Donate</button>
+          <button class="frutiger-aero-button small-btn">Contact</button>
+        </div>
+      </aside>
+
+      <!-- LIVE CONTEXT -->
+      <aside class="sideboard glass">
+        <h3>Live context</h3>
+        <div class="context-buttons" id="context-buttons">
+          <!-- Buttons will be populated by JavaScript -->
+        </div>
+      </aside>
+    </div>
+
+    <!-- CENTER COLUMN -->
+    <section class="main glass">
+      <h1>Clean water is a present-day issue.</h1>
+
+      <p>
+        This page presents calm, real-time context around global water access.
+        It is designed to be informative, ambient, and grounded in reality.
+      </p>
+
+      <button class="frutiger-aero-button medium">
+        Learn more
+      </button>
+
+      <div class="main-image-container">
+        <img src="img/community-leader.png" alt="Community leader holding fresh vegetables" class="main-image">
+      </div>
     </section>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+  </main>
+
+  <!-- DONATE NOW SECTION -->
+  <section class="donate-section glass">
+    <h2>Donate Now</h2>
+    <p>Every donation directly funds water projects that transform lives. Your support brings clean water to communities in need.</p>
+    <div class="donate-buttons">
+      <button class="frutiger-aero-button medium">Make a One-Time Donation</button>
+      <button class="frutiger-aero-button medium">Become a Monthly Supporter</button>
+    </div>
+  </section>
+
+  <!-- HERO SECTION -->
+  <section class="hero glass">
+    <h2>Clean water changes everything.</h2>
+    <p>Clean water transforms health, education, and economic opportunity. When families have access to safe, reliable water, entire communities thrive.</p>
+    <div class="hero-buttons">
+      <button class="frutiger-aero-button medium">Join the mission</button>
+      <button class="frutiger-aero-button medium">Learn how we work</button>
+    </div>
+  </section>
+
+  <!-- IMPACT STATISTICS SECTION -->
+  <section class="impact-stats glass">
+    <div class="stat-item">
+      <div class="stat-number">197,000+</div>
+      <div class="stat-label">Water projects funded</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">29+</div>
+      <div class="stat-label">Countries served</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">20,763,856+</div>
+      <div class="stat-label">People served</div>
+    </div>
+  </section>
+
+  <!-- WHY WATER SECTION -->
+  <section class="why-water glass">
+    <h3>Why Water?</h3>
+    <div class="water-blocks">
+      <div class="water-block">
+        <h4>Health</h4>
+        <p>Clean water prevents waterborne diseases and reduces child mortality, enabling families to live healthier, longer lives.</p>
+      </div>
+      <div class="water-block">
+        <h4>Education</h4>
+        <p>When students don't spend hours collecting water, they attend school more regularly and have time to learn and grow.</p>
+      </div>
+      <div class="water-block">
+        <h4>Economic Growth</h4>
+        <p>Access to clean water frees time and resources for work and entrepreneurship, lifting entire communities out of poverty.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE WORK SECTION -->
+  <section class="how-we-work glass">
+    <h3>How We Work</h3>
+    <p>charity: water builds direct partnerships with local communities to bring clean water and sanitation to the world's poorest regions. Every project is GPS-verified and transparently tracked. We give 100% of donations directly to water projects—overhead is covered by private donations.</p>
+  </section>
+
+  <!-- JOIN THE CAUSE SECTION -->
+  <section class="join-cause glass">
+    <h3>Join the Cause</h3>
+    <div class="cause-buttons">
+      <button class="frutiger-aero-button medium">Give Clean Water Every Month</button>
+      <button class="frutiger-aero-button medium">Sponsor a Water Project</button>
+      <button class="frutiger-aero-button medium">Start a Fundraiser</button>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <a href="https://www.charitywater.org" target="_blank">
+      Visit charitywater.org
+    </a>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
